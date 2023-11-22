@@ -7,6 +7,7 @@ import { PostgresDB } from "./infrastructure/data/postgresql"
 import { QueryResult } from "pg";
 import { getToken } from "./domain/service/token";
 import {dbConnect} from "./infrastructure/data/mongo"
+import { GetTokens } from "./application/useCases/getTokenUseCase";
 
 const PORT = process.env.PORT || 3001
 
@@ -23,6 +24,7 @@ dbConnect().then(() => {
     console.log("Conectando a mongodb .....")
 })
 getToken()
+GetTokens()
 app.listen(PORT, ()=>console.log(`Desplegando por el puerto ${PORT}`))
 
 

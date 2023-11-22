@@ -1,5 +1,5 @@
 import {Request, Response, Router } from "express";
-import { getToken, getTokens, postToken, updateToken } from "../controllers/tokenController";
+import { InsertTokenItem, GetTokenItems, postToken, updateToken } from "../controllers/tokenController";
 
 const router = Router()
 
@@ -15,13 +15,13 @@ const router = Router()
 // return router
 // }
 
-router.get("/", getTokens)
+router.get("/", GetTokenItems)
 
 
-router.get("/:id", getToken)
+router.get("/:id", GetTokenItems)
 
 
-router.post("/", postToken)
+router.post("/", InsertTokenItem)
 
 
 router.put("/:id", updateToken)

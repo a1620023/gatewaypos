@@ -1,15 +1,15 @@
 import { Request, Response } from "express";
-import { CreateToken } from "../../../application/useCases/getTokenUseCase";
+import { InsertToken, GetTokens } from "../../../application/useCases/getTokenUseCase";
 import { ErrorHandlerHTTP } from "../utils/errorHandler";
 
 // class TokenController {
 
 //     constructor(private readonly getTokenUseCase: GetTokenUseCase) {}
 
-    const getToken = async ({ body }:Request, res:Response) => {
-        console.log("ingresamos al get del controller ...(c1)")
+    const InsertTokenItem = async ({ body }:Request, res:Response) => {
+        console.log("ingresamos al get del controller InsertTokenItem ...(I1)")
         try {
-            const responseToken = await CreateToken(body)
+            const responseToken = await InsertToken(body)
             console.log("in getToken .... ", responseToken)
             res.send(responseToken)
         } catch (error) {
@@ -18,8 +18,12 @@ import { ErrorHandlerHTTP } from "../utils/errorHandler";
         }
     }
 
-    const getTokens = async (req:Request, res:Response) => {
+    const GetTokenItems = async (req:Request, res:Response) => {
+        console.log("ingresamos al get del controller GetTokenItems ...(G1)")
         try {
+            const responseToken = await GetTokens()
+            console.log("in GetTokenItems .... ", responseToken)
+            res.send(responseToken)
         } catch (error) {
             ErrorHandlerHTTP(res, 'Internal server error - getTokens'+error)
         }
@@ -50,4 +54,4 @@ import { ErrorHandlerHTTP } from "../utils/errorHandler";
 // }
 
 // export { TokenController }
-export { getToken, getTokens, updateToken, postToken, deleteToken}
+export { InsertTokenItem, GetTokenItems, updateToken, postToken, deleteToken}
