@@ -1,5 +1,5 @@
 import { QueryResult } from "pg";
-import { TokenModel } from "../../domain/models/tokenModel";
+import { TokenModel } from "../../domain/models/cardModel";
 import { TokenRepository } from "../../domain/repositories/tokenRepository";
 import { PostgresDB } from "./postgresql";
 

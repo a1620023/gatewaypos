@@ -6,6 +6,7 @@ import {router} from "./infrastructure/interfaces/routes"
 import { PostgresDB } from "./infrastructure/data/postgresql"
 import { QueryResult } from "pg";
 import { getToken } from "./domain/service/token";
+import {dbConnect} from "./infrastructure/data/mongo"
 
 const PORT = process.env.PORT || 3001
 
@@ -16,7 +17,11 @@ app.use(cors({
     origin: ['http://localhost:4200']
 }))
 app.use(router)
+app.use(express.json())
 PostgresDB.connect()
+dbConnect().then(() => {
+    console.log("Conectando a mongodb .....")
+})
 getToken()
 app.listen(PORT, ()=>console.log(`Desplegando por el puerto ${PORT}`))
 

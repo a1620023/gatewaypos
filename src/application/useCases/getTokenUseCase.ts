@@ -1,12 +1,10 @@
 import { TokenModel } from "../../domain/models/tokenModel";
+import { Token } from "../../domain/models/token.interface";
 import { TokenRepository } from "../../domain/repositories/tokenRepository";
 
-class GetTokenUseCase {
-    constructor( private readonly tokenRepository: TokenRepository) {}
-
-    async execute(tokenId: number): Promise<TokenModel | null> {
-        return this.tokenRepository.getTokenById(tokenId);
-      }
+const CreateToken =async (token:Token) => {
+  const responseCreate = await TokenModel.create(token)
+  return responseCreate
 }
 
-export { GetTokenUseCase }
+export { CreateToken }
