@@ -4,8 +4,6 @@ import cors from "cors"
 
 import {router} from "./infrastructure/interfaces/routes"
 import { PostgresDB } from "./infrastructure/data/postgresql"
-import { QueryResult } from "pg";
-import { getToken } from "./domain/service/token";
 import {dbConnect} from "./infrastructure/data/mongo"
 import { GetTokens } from "./application/useCases/getTokenUseCase";
 
@@ -23,7 +21,6 @@ PostgresDB.connect()
 dbConnect().then(() => {
     console.log("Conectando a mongodb .....")
 })
-getToken()
 GetTokens()
 app.listen(PORT, ()=>console.log(`Desplegando por el puerto ${PORT}`))
 
