@@ -6,6 +6,7 @@ const getToken =async () => {//(req:Request, res: Response ) => {
     const response: QueryResult = await PostgresDB.query('select * from token')
     //res.status(200).json(response.rows)
     //console.log("dddd",response.rows)
+    return
 }
 
 export {getToken}

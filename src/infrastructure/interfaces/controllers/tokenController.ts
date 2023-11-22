@@ -9,11 +9,11 @@ import { ErrorHandlerHTTP } from "../utils/errorHandler";
     const InsertTokenItem = async ({ body }:Request, res:Response) => {
         console.log("ingresamos al get del controller InsertTokenItem ...(I1)")
         try {
-            const responseToken = await InsertToken(body)
+            const responseToken:any = await InsertToken(body)
             console.log("in getToken .... ", responseToken)
             res.send(responseToken)
         } catch (error) {
-            console.log("____...[E]",error)
+            console.log("...[E]",error)
             ErrorHandlerHTTP(res, 'Internal server error - getToken'+error)
         }
     }

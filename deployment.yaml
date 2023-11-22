@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gatewaypos
+spec:
+  replicas: 3  
+  selector:
+    matchLabels:
+      app: gatewaypos
+  template:
+    metadata:
+      labels:
+        app: gatewaypos
+    spec:
+      containers:
+        - name: culqui
+          image: gatewaypos/gatewaypos:latest  
+          ports:
+            - containerPort: 3000
