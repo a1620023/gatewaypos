@@ -4,7 +4,10 @@
   "description": "Prueba tecnica",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./src/app.ts"
+    "dev": "nodemon ./src/app.ts",
+    "test": "jest",
+    "start": "node app.js",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
