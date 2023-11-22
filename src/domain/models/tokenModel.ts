@@ -1,12 +1,22 @@
 
-class TokenModel {
-    email!: string
-    cardNumber!: number
-    cvv!: number
-    expirationMonth!: string
-    expirationYear!: string
+import { Schema, Types, model, Model } from "mongoose";
+import { Token } from "./token.interface";
 
-    constructor(){}
-}
+const TokenSchema = new Schema<Token>(
+    {
+        _id: {
+            type: String
+        },
+        token: {
+            type: String
+        }
+    },
+    {
+        timestamps:true,
+        versionKey:false
+    }
+)
 
-export {TokenModel}
+const TokenModel = model("token", TokenSchema)
+
+export { TokenModel}
