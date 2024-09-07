@@ -1,2 +1,2 @@
 # gatewaypos
-Prueba tecnica
+Pruebas de concepto 
